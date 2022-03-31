@@ -76,7 +76,7 @@ class _LoginPageState extends State<LoginPage> {
                         validator: (value) {
                           if (value!.isEmpty) {
                             return "PassWord can not be empty ";
-                          } else if (value!.length < 6) {
+                          } else if (value.length < 6) {
                             return "Password is length should be at least 6";
                           }
                           return null;
@@ -84,7 +84,6 @@ class _LoginPageState extends State<LoginPage> {
                     SizedBox(
                       height: 40,
                     ),
-
                     InkWell(
                       onTap: (() => moveToHome(context)),
                       child: AnimatedContainer(
@@ -109,16 +108,6 @@ class _LoginPageState extends State<LoginPage> {
                                 BorderRadius.circular(changebutton ? 50 : 8)),
                       ),
                     ),
-
-                    // ElevatedButton(
-                    //   child: Text("Login"),
-                    //   style: TextButton.styleFrom(
-                    //       backgroundColor: Colors.black,
-                    //       minimumSize: Size(150, 50)),
-                    //   onPressed: () {
-                    //     Navigator.pushNamed(context, MyRoutes.homepage);
-                    //   },
-                    // ),
                   ],
                 ),
               ),
