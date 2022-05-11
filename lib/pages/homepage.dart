@@ -1,4 +1,6 @@
+// ignore_for_file: prefer_const_constructors
 import 'package:flutter/material.dart';
+import 'package:flutter_application_1/widgets/drawer.dart';
 
 class HomePage extends StatelessWidget {
   final int a = 30;
@@ -17,7 +19,7 @@ class HomePage extends StatelessWidget {
       body: Center(
         child: Container(child: Text("Hello $name to $a days of flutter ")),
       ),
-      drawer: Drawer(),
+      drawer: MyDrawer(),
     );
   }
 }
