@@ -1,13 +1,35 @@
 // ignore_for_file: prefer_const_constructors
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
+import 'dart:convert';
 import 'package:flutter_application_1/models/catalog.dart';
 import 'package:flutter_application_1/widgets/drawer.dart';
 
 import '../widgets/items_widgets.dart';
 
-class HomePage extends StatelessWidget {
+class HomePage extends StatefulWidget {
+  @override
+  State<HomePage> createState() => _HomePageState();
+}
+
+class _HomePageState extends State<HomePage> {
   final int a = 30;
+
   final String name = "sohendar";
+
+  @override
+  void initState() {
+    // TODO: implement initState
+    super.initState();
+    loadData();
+  }
+
+  loadData() async {
+    var CatalogJson = await rootBundle.loadString("assets/files/catalog.json");
+    var decodeddata = jsonDecode(CatalogJson);
+    var productdata = decodeddata["products"];
+    print(productdata);
+  }
 
   @override
   Widget build(BuildContext context) {
