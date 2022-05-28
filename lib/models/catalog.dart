@@ -1,7 +1,11 @@
 import 'package:flutter/foundation.dart';
 
+class CatalogModel {
+  static List<Item> items = [];
+}
+
 class Item {
-  final String id;
+  final num id;
   final String name;
   final String desc;
   final num price;
@@ -16,15 +20,23 @@ class Item {
     required this.name,
     required this.price,
   });
-}
 
-final products = [
-  Item(
-      id: "Codepur001",
-      name: "iPhone 12 Pro",
-      desc: "Apple iPhone 12th generation",
-      price: 999,
-      color: "#33505a",
-      image:
-          "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRISJ6msIu4AU9_M9ZnJVQVFmfuhfyJjEtbUm3ZK11_8IV9TV25-1uM5wHjiFNwKy99w0mR5Hk&usqp=CAc")
-];
+  factory Item.fromMap(Map<String, dynamic> map) {
+    return Item(
+        id: map["id"],
+        color: map["color"],
+        desc: map["desc"],
+        image: map["image"],
+        name: map["name"],
+        price: map["price"]);
+  }
+
+  toMap() => {
+        "id": id,
+        "color": color,
+        "desc": desc,
+        "iimage": image,
+        "name": name,
+        "price": price,
+      };
+}
