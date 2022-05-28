@@ -8,7 +8,7 @@ class MyDrawer extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final imageUrl =
-        "https://yt3.ggpht.com/ytc/AKedOLRXr68KcEsw77w_IK4v-vdHpsVRKHLEnpvOoyPj=s900-c-k-c0x00ffffff-no-rj";
+        "https://static1.cbrimages.com/wordpress/wp-content/uploads/2021/05/JJK-Gojo-Juju-Sanpo-1.jpg";
     return Drawer(
       child: Container(
         color: Colors.grey,
@@ -19,8 +19,8 @@ class MyDrawer extends StatelessWidget {
               padding: EdgeInsets.zero,
               child: UserAccountsDrawerHeader(
                 decoration: BoxDecoration(color: Colors.blueGrey),
-                accountName: Text("Sohendar Rana"),
-                accountEmail: Text("sohendar1@gmail.com"),
+                accountName: Text("Gojo Saturu"),
+                accountEmail: Text("gojosaturu@gmail.com"),
                 currentAccountPicture:
                     CircleAvatar(backgroundImage: NetworkImage(imageUrl)),
               ),
@@ -29,11 +29,10 @@ class MyDrawer extends StatelessWidget {
               leading: Icon(
                 CupertinoIcons.home,
                 color: Colors.black,
-                size: 30,
               ),
               title: Text(
                 "Home",
-                textScaleFactor: 2.5,
+                textScaleFactor: 1.5,
                 style: (TextStyle(fontWeight: FontWeight.bold)),
               ),
             ),
@@ -41,11 +40,10 @@ class MyDrawer extends StatelessWidget {
               leading: Icon(
                 CupertinoIcons.profile_circled,
                 color: Colors.black,
-                size: 30,
               ),
               title: Text(
                 "Profile",
-                textScaleFactor: 2.5,
+                textScaleFactor: 1.5,
                 style: (TextStyle(fontWeight: FontWeight.bold)),
               ),
             ),
@@ -53,11 +51,10 @@ class MyDrawer extends StatelessWidget {
               leading: Icon(
                 CupertinoIcons.mail,
                 color: Colors.black,
-                size: 30,
               ),
               title: Text(
                 "Email",
-                textScaleFactor: 2.5,
+                textScaleFactor: 1.5,
                 style: (TextStyle(fontWeight: FontWeight.bold)),
               ),
             ),
