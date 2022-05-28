@@ -1,4 +1,5 @@
 // ignore_for_file: prefer_const_constructors
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'dart:convert';
@@ -47,13 +48,30 @@ class _HomePageState extends State<HomePage> {
       body: Padding(
         padding: const EdgeInsets.all(16.0),
         child: (CatalogModel.items != null && CatalogModel.items.isNotEmpty)
-            ? ListView.builder(
-                itemCount: CatalogModel.items.length,
-                itemBuilder: (BuildContext context, int index) {
-                  return ItemWidget(
-                    item: CatalogModel.items[index],
-                  );
+            ? GridView.builder(
+                gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                  crossAxisCount: 2,
+                  crossAxisSpacing: 16,
+                  mainAxisSpacing: 16,
+                ),
+                itemBuilder: (context, Index) {
+                  final item = CatalogModel.items[Index];
+                  return Card(
+                      clipBehavior: Clip.antiAlias,
+                      elevation: 3,
+                      shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(10)),
+                      child: GridTile(
+                        header: Container(
+                          child: Text(item.name),
+                          padding: const EdgeInsets.all(12),
+                          decoration: BoxDecoration(color: Colors.blueGrey),
+                        ),
+                        child: Image.network(item.image),
+                        footer: Text(item.price.toString()),
+                      ));
                 },
+                itemCount: CatalogModel.items.length,
               )
             : Center(
                 child: CircularProgressIndicator(),
