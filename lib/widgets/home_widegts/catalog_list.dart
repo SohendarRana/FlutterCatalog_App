@@ -53,7 +53,9 @@ class CatalogItem extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.start,
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                catalog.name.text.bold.lg.color(MyTheme.darkBluishColor).make(),
+                catalog.name.text.bold.lg
+                    .color(Theme.of(context).accentColor)
+                    .make(),
                 catalog.desc.text.textStyle(context.captionStyle).make(),
                 10.heightBox,
                 ButtonBar(
@@ -63,10 +65,10 @@ class CatalogItem extends StatelessWidget {
                     "\$${catalog.price}".text.bold.xl.make(),
                     ElevatedButton(
                       onPressed: () {},
-                      child: "Buy".text.make(),
+                      child: "Add to cart".text.make(),
                       style: ButtonStyle(
                           backgroundColor: MaterialStateProperty.all(
-                              MyTheme.darkBluishColor),
+                              context.theme.buttonColor),
                           shape: MaterialStateProperty.all(
                             StadiumBorder(),
                           )),
@@ -76,6 +78,6 @@ class CatalogItem extends StatelessWidget {
               ]),
         )
       ],
-    )).white.rounded.square(150).make().py16();
+    )).color(Theme.of(context).cardColor).rounded.square(150).make().py16();
   }
 }
