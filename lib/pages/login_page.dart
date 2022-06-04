@@ -1,8 +1,6 @@
 // ignore_for_file: prefer_const_constructors
-import 'dart:ui';
 
 import 'package:flutter/material.dart';
-import 'package:flutter_application_1/widgets/theme.dart';
 
 import '../utils/routes.dart';
 
